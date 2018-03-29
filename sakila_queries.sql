@@ -52,12 +52,14 @@ WHERE first_name = 'GROUCHO' AND last_name = 'WILLIAMS';
 
 -- 4d. Change back to HARPO, if already GROUCHO then MUCHO GROUCHO
 UPDATE actor 
-SET first_name = CASE 
-	WHEN first_name = 'HARPO' THEN 'GROUCHO'
-	WHEN first_name = 'GROUCHO' THEN 'MUCHO GROUCHO'
-    ELSE first_name
-END
-WHERE actor_id = 172;
+SET 
+    first_name = CASE
+        WHEN first_name = 'HARPO' THEN 'GROUCHO'
+        WHEN first_name = 'GROUCHO' THEN 'MUCHO GROUCHO'
+        ELSE first_name
+    END
+WHERE
+    actor_id = 172;
 
 -- 5a. Query to show how to recreate address table from sakila database
 SHOW CREATE TABLE sakila.address;
