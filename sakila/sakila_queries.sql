@@ -7,7 +7,7 @@ SELECT first_name, last_name FROM actor;
 -- 1b. Display first and last name in a single column
 SELECT CONCAT(first_name, ' ', last_name) AS 'Actor Name' FROM actor;
 
--- 2a. Find the ID number, first name, and last name of an actor, of whom you know only the first name, 'Joe'
+-- 2a. Find ID number, first name, and last name of an actor, of whom you know only the first name, 'Joe'
 SELECT actor_id, first_name, last_name FROM actor
 WHERE first_name = 'Joe';
 
@@ -15,12 +15,12 @@ WHERE first_name = 'Joe';
 SELECT first_name, last_name FROM actor
 WHERE last_name LIKE '%GEN%';
 
--- 2c. Find all actors whose last names contain the letters LI. This time, order the rows by last name and first name, in that order
+-- 2c. Find all actors whose last names contain the letters LI, order by last name, then first name
 SELECT first_name, last_name FROM actor
 WHERE last_name LIKE '%LI%'
 ORDER BY last_name, first_name;
 
--- 2d. Using IN, display the country_id and country columns of the following countries: Afghanistan, Bangladesh, and China
+-- 2d. Using IN, display the country_id and country columns of Afghanistan, Bangladesh, and China
 SELECT country_id, country FROM country
 WHERE country IN ('Afghanistan', 'Bangladesh', 'China');
 
@@ -41,7 +41,7 @@ DROP COLUMN middle_name;
 SELECT last_name, COUNT(*) AS count FROM actor
 GROUP BY last_name;
 
--- 4b. List last names of actors and the number of actors who have that last name, but only those by at least two actors
+-- 4b. List last names & the number of actors who have that last name, but only those w/ at least two actors
 SELECT last_name, COUNT(*) AS count FROM actor
 GROUP BY last_name
 HAVING count > 1;
